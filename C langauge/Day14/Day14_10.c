@@ -17,11 +17,11 @@ int main()
       //printf("%u",&arr[0]); // 1     
 
         int i; 
-        // for(i=0;i<5;i++)
-        // {
-        //     printf("%u ",&arr[i]); 
-        //     // &arr[0] &arr[1] ...&arr[4]
-        // }
+        for(i=0;i<5;i++)
+        {
+            printf("%u ",&arr[i]); 
+            // &arr[0] &arr[1] ...&arr[4]
+        }
   // name of the array represents address of first element   
   //  arr --> address of first element 
 

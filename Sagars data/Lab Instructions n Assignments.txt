@@ -1,0 +1,358 @@
+Day 1(revision)
+1. NO hands on assignments for today.
+
+2. Please follow "sequence.txt" from today's help , to refer to today's sequence
+Complete the revision well.
+
+Day 2 (revision)
+1. No new assignments for today.
+
+2. Do follow "sequence.txt" from today's help , revise in the same manner.
+
+3. Go through "web basics" readmes.
+
+4. Confirm DB credentials
+
+Day 3
+NOTE : Entire JDBC help is already shared in day2-data : jdbc_help
+
+1. import day3.1 eclipse project in your workspace. Edit mysql connector jar path.
+Revise JDBC flow.
+(DO NOT waste too much time here)
+
+2. import day3.2 eclipse project in your workspace. Edit mysql connector jar path.
+
+2.1 Revise layered application, in a top down manner
+Tester --- JDBC Based DAO layer --- DBUtils --POJO(Entity/Model/Domain obj/DTO) --DB
+(refer to today's sequence , diagrams for clarity)
+
+3. Hands on
+3.1 Delete user details (in existing project) : by email
+
+After I join the query session , we will discuss the following assignment
+
+4. Completion n testing of layers in voting assignment.
+Steps
+1.Tables : voters n candidates : done !
+2. POJOs : Voter (status : boolean), Candidate
+3 Copy DBUtils: edit user name n pwd
+4. DAO
+4.1 IVoterDao
+Voter authenticateUser(String name,String pwd) throws SE
+String  updateVotingStatus(int voterId) throws SE
+
+4.2 VoterDaoImpl
+state : cn , pst1,pst2
+constr : openConnection, pst1=select , pst2=update
+clean up : pst1,pst2 close , close cn
+CRUD :1.  set IN params, execQuery --> RST --> row --> Voter POJO --> ret
+2. execUpdate
+
+5. Tester1 : main --> Scanner ---> create voter dao instance --> take user i/p(nm ,pwd) --> simply call dao's method --> clean up dao --> exit
+
+6. ICandidateDao : i/f
+6.1  List<Candidate> getCandidateList() throws SE
+String incrementVotes(int candidateId) throws SE
+
+6.2 CandidateDaoImpl
+state : cn , pst1
+constr : openConnection, pst1=.....
+clean up : pst1 close , close cn
+CRUD :  execQuery --> RST --> rows --> while --> Candidate POJO --> ret List<Candidate>
+
+7. Tester 2 main --> Scanner ---> create candidate dao instance -->  simply call dao's method --> clean up dao --> exit
+
+8. Writer simple testers (test cases)
+
+Day 4
+
+1. import day4.1 , as existing java project , edit JDBC JAR , change DB user name n password from DBUtils. 
+Revise invocation of stored procedure.
+
+2 Add Tomcat 9.0 in your workspace (as explained)
+
+3. Either  import day4.2_web  in your workspace , as existing Project in workspace.
+
+OR better still , create day4_web_lab as new dynamic web project , from scratch
+
+3.1 Create index.html n add a link to test Hello World Servlet , along with it's basic life cycle.
+
+Revise servlet Deployment using annotations 
+
+3.2 
+Common Troubleshooting Tips , in case  web server or your web app is not working correctly.
+0. From Project menu : "Build automatically" should be checked n your servers project should not be closed.
+
+1. Stop web server
+2. R Click on Tomcat server --- add n remove --Remove All : This will un deploy all web apps from the server.
+3. R Click on Tomcat server --clean
+4. R Click on Tomcat server --clean tomcat work directory
+5. Start server (If it starts correctly => no server issues!)
+6. Clean Project n deploy the dynamic web project n test it.
+7. After deploying the project , if you are getting HTTP 404 , on the client side --check if you have added a welcome page correctly under the root of web app(i.e under src/main/webapp)
+
+After I join the labs , we will discuss new  hands on
+4. Invoke stored function.
+
+5. Complete Day 3' pending work
+
+6. Optionally , we can discuss a new assignemnt , if majority is willing !
+
+In your reading time (after the labs) , go through "readme Java EE" n "regarding HttpServlet"
+for popular questions
+
+
+Day 5
+
+Important hightlights of today's session
+Servlet life cycle
+Annotation n xml based deployment
+Load on startup
+Servlet-JDBC integration
+Page Navigation : client Pull (mainly redirect scenario)
+Cookie based session management
+
+1. To revise all of above topics , import day5.1 in your workspace , edit DBUtils , to change DB user name n password.
+1.1 Open index.html n trace all the links for complete revision.
+Test the web app , once with cookies enabled n disabled .
+Understand the internals of sendRedirect.
+Use sequence.txt , diagrams n readmes as your help.
+
+2.Hands on
+Start with voting assignment
+refer : "day5-data\day5_help\voting assignment.png"
+2.1 Complete at least till the AuthenticationServlet (which is very similar to our theory session)
+Redirect the client suitably.
+
+2.2 If time permits : OPTIONAL 
+Perform role based authorization 
+Only solve admin role (work only for admin login)
+Display admin name , retrieved from a cookie.
+Display details of top  2 candidates , securing max votes (assume : different votes for each candidate)
+Display Party wise votes analysis 
+(eg : Party Name : Votes)
+For the last one , add more rows in candidates table , to add multiple candidates under same party.
+
+In case of any problems , I am going to get it done in Monday's lab.
+BUT please try it out !
+
+Day 6
+
+1.import day6.1 in your workspace as existing project , edit DBUtils , to change DB user name n password .
+
+1.1 Open index.html n trace"User Login" for complete revision.
+Refer to today's sequence for revision as well as flow
+
+1.2 Highlights
+HttpSession
+Dynamic form generation
+Page Flow
+
+2. Hands on
+We will complete admin part of the voting assignment today (either in your individual labs or with me in the common lab)
+
+2.1 ICandidateDao
+List<Candidate>  getCandidatesByVotes() throws SQLExc
+LinkedHashMap<String: party Name , Integer : votes> partyWiseVotesAnalysis() throws SQLExc
+
+Day 7
+
+1. import day7.1 , to revise completion of the CMS(content management system) : customer flow
+Look at only 2 last pages : TutorialDetails n Logout servlet 
+All earlier pages we had completed on Day 6
+
+2. import day7.2 , to revise server pull(Request Dispatching : forward scenario)
+Understand difference between redirect vs forward
+
+3. import day7.3 , to revise server pull(Request Dispatching : include scenario)
+Understand difference between forward vs include
+
+4. import day7.4 to revise servelet config n init-params
+Visit  : web.xml , LoginServlet n DBUtils only
+
+All of above should be done using code , diagrams n readmes .
+
+5. Good News !
+NO New assignments
+
+6. Exam Objectives : (in your free time)
+
+Find out from Java EE Docs
+request.getSession() vs request.getSession(boolean create)
+GenericServlet's init() vs init(ServletConfig cfg)
+request.getRequestDispatcher vs ServletContext.getRequestDispatcher (later!)
+RequestDispatcher (forward) vs redirect
+
+Day 8
+
+Dear All !
+Please respond to  a poll : to decide revision to be taken in the same day's lab session OR next morning 
+
+You can always ask me detailed queries , in the same day's lab , as usual.
+
+Thanks .
+
+1. import day8.1 . Edit web.xml , to change DB user name n password. 
+Only go through listeners.MyListenner , to revise web app listeners
+
+2. import day8.2 , to revise JSP syntax.
+
+3. Hand on 
+Refer to :  "JSP assignment.png" n solve.
+
+
+Reading H.W (to be done after lab)
+1. Revise ServletCofig n ServletContext , with readmes
+2. Complete Servlet life cycle.
+3. Executor framework overview 
+4. Web app listeners
+5. JSP life cycle n basic syntax , using diagrams n readme
+
+
+Day 9
+1. import day9.1 , to understand various scopes (page | request | session |application)
+
+2. import day9.2 , to revise
+2.1 URL rewriting , for user login
+2.2 Centralized error handling , with error page
+2.3 JSP include directive
+2.4 JSP forward n include action
+
+3. import day9.3 to revise , JSP -Java Bean scenarion
+Trace the layers : JSP --Java Bean -- DAO (using DB Utils) --POJO --DB
+
+In common lab session (after 4:15PM) we will revise , day9.3 from scratch.
+
+Day 10
+1. import day10.1 , as existing java project . Trace complete admin flow.
+
+2. import day10_hibernate . Confirm bootstrapping of hibernate.
+
+
+Day 11
+
+1. import day11_hibernate as existing maven based hibernate project.
+Refer to today's sequence n import readmes n diagrams
+Trace the flow in top -down manner from Tester --DAO (uses HibernateUtils) -- Hibernate managed entities --DB
+
+Revise
+1.1 JPA annotations in Entity class
+1.2 Hibernate based DAO
+1.3 Hibernate Session API
+1.4 Entity(POJO) life cycle n states.
+1.5 Confirm working of L1 cache.
+1.6 openSession vs getCurrentSession
+
+2. Hand on (Try to solve it with your lab faculty help)
+Refer to following  "home" table from MERN training (AirBnB) 
+(I have made some modifications)
+
+create table home (
+    id integer primary key auto_increment,
+
+    -- 1: flat,
+    -- 2: house,
+    -- 3: secondary unit
+    -- 4: unique space
+    -- 5: bed and breakfast
+    -- 6: boutique hotel
+    type varchar(20),
+    addressLine1 varchar(50),
+    addressLine2 varchar(50),
+    addressLine3 varchar(50),
+    city varchar(50),
+    state varchar(50),
+    zipCode varchar(6),
+
+    guests integer,
+    beds integer,
+    bedrooms integer,
+    bathrooms integer,
+
+    title varchar(100),
+    tagline varchar(100),
+    shortDescription varchar(500),
+    longDescription varchar(10000),
+
+    rent integer,
+    cleaningFees integer,
+    serviceFee integer,
+    tax integer,
+
+    createdDate date
+);
+
+NOTE : Home type should be in java code : enum
+Currently not adding user id. (will be added later with E-R)
+
+2.1 Create Home entity , using JPA annotations
+
+2.2 Add DAO layer methods for the following n test then using simple testers.
+1. Add new Home
+2. Get home by it's id
+3. Get homes by it's type.(eg : house/flat/boutique hotel etc...)
+4. Get all flats from a specific city
+5. Get all houses from a specific city , with specified no of bedrooms n bathrooms
+String jpql="select h from Home h where h.type=:ty and h.bedrooms=:beds and h.bathrooms=:baths";
+List<Home> homes=session.createQuery(jpql,Home.class).setParameter("ty",HomeType.HOUSE).setParameter("bedrooms",noOfBeds).setParameter("bathrooms",noOfBaths).getResultList();
+//homes => list of persistent entities
+tx.commit();
+//homes => list of DETACHED entities --> ret it to the caller.
+
+
+
+
+
+
+
+
+Day 12
+1. import day12.1 in your workspace , as existing Maven Project (Java SE)
+Refer to today's sequence , readmes n diagrams
+Go through Tester--DAO--POJO-DB layers to revise
+1.1 save vs persist
+1.2 JPQL n getSingleResult
+1.3 Projections using single column or constructor expression for multiple columns
+1.4 Non Bulk updates (select +update)
+1.5 Bulk updates (single update query)
+1.6 Non bulk deletes (select +delete)
+1.7 Bulk deletions (sinlge delete query)
+1.8 Save n restore images.
+
+
+2. Hands on
+Integration of hibernate in a web app 
+
+Port : day6_lab_voting_admin web app to hibernate
+(voting assignment under admin role)
+
+OR
+
+Create new scenario from scratch , for the following 
+1. Add Product Details
+name,description,category,price,manufacture date
+
+2. Display Products from a specific category.
+Steps
+1. Copy from dyn web project template
+2. Copy hibernate.cfg.xml under src/main/resources n remove mapping entry
+3. Copy HibernateUtils
+4. Create Product POJO 
+properties : productId , name,description,category,price,manufacture date, quantity
+Add JPA annotations
+
+5. Develope Product DAO layer
+5.1 Add a method to fetch all distinct categories
+eg : List<String> getAllDistinctCategories()
+
+5.2 Add a method to insert new product details
+String addProduct(Product p);
+
+5.3 Add a method to search products by category
+List<Product> findByCategory(Category category);//Category : enum
+
+6. Java bean : ProductBean
+
+7. JSPs : view layer.
+
+

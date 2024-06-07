@@ -2,7 +2,7 @@
 
 int main()
 {
-    int num = 10; 
+    int const num = 10; 
     int * const ptr = &num; 
     //int * ptr const = &num;
     //ptr = &num; // ERROR   
@@ -15,7 +15,7 @@ int main()
     printf("%d\n",*ptr);// 1000 
 
     //int num2 = 20; 
-    //ptr = &num2; //ERROR  
+    ptr = &num2; //ERROR  
 
 
     return 0; 

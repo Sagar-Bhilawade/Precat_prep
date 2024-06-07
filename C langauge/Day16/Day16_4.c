@@ -3,12 +3,12 @@
 int main()
 {
     int i; 
-    //char str[] = "Sunbeam Infotech"; 
+    char str[] = "Sunbeam Infotech"; 
       char name[20];    
     // printing a string 
 
-    // for(i=0;str[i]!='\0';i++)
-    //         putchar(str[i]); 
+    for(i=0;str[i]!='\0';i++)
+            putchar(str[i]); 
 
      //printf("%s",str); 
      

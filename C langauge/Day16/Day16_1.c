@@ -27,7 +27,8 @@ int main()
   // print all char until \0 is encountered 
     // for(i=0;str3[i]!='\0';i++)
     //   putchar(str3[i]); 
-  
+  puts(str2);
+  printf("%s",str2);
     for(i=0;i<7;i++)
       putchar(str5[i]); 
   

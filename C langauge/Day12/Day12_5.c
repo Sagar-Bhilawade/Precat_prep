@@ -9,6 +9,7 @@ int main()
     int num = 100; // local variable 
     static int num2 = 200; // static variable     
     printf("%d",num2); // 200 
+    fun();
 }
 
 void fun()

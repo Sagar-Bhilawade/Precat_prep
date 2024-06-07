@@ -7,6 +7,6 @@ int main()
         int inner_var = 500; 
         printf("%d",inner_var);  
     }
-    printf("%d",outer_var);  
+    printf("%d",inner_var);  
     return 0; 
 }

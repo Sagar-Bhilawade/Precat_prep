@@ -17,7 +17,7 @@ int main()
     printf("result = %.2lf\n",res);
 
     //function call 
-    multiplication(2.0,4.0); 
+    res=multiplication(2.0,4.0); 
 
     printf("Enter the num and den\n"); 
     scanf("%d%d",&num,&den); // 4 2 

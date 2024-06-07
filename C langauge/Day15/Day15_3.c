@@ -42,7 +42,8 @@ int main()
                 = 108 
     */ 
         printf("%d",*ptr); // 33   
-     
+     printf("%d",++*ptr++);
+     printf("%d",*ptr);
      
         //++*ptr++;// Homework 
 

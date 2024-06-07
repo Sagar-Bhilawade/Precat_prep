@@ -10,7 +10,7 @@ int main()
 
 void fun( void )
 {
-        static int num = 1;
+         int num = 1;
         // data section  
         num++; 
         printf("%d\n",num);  // 2 3 4 

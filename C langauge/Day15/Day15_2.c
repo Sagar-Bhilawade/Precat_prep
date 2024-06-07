@@ -6,7 +6,7 @@ int main()
     
     
        
-       printf("\n%d",-2[arr]);
+       printf("\n%d",-5[arr]);
 
 
 
